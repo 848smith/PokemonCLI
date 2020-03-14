@@ -1,0 +1,3 @@
+class PokemonCLI::Pokemon
+  
+end
