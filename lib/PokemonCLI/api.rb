@@ -1,5 +1,6 @@
 class PokemonCLI::API
-  def self.get_pokemon(input)
-    @pokemon_hash = HTTParty.get("https://pokeapi.co/api/v2/pokemon/{#{input}}/")
+  def self.get_pokemon
+    @pokemon_hash = PokeApi.get(pokemon: 'bulbasaur')
+    binding.pry
   end
 end
