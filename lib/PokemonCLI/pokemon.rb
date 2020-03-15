@@ -1,9 +1,10 @@
 class PokemonCLI::Pokemon
-  attr_accessor :type, :base_exp, :pokedex, :specs, :stats, :games
+  attr_accessor :types, :base_exp, :pokedex, :specs, :stats, :games, :name
   @@all = []
   
   def initialize(pokemon)
-    
+    pokemon.each {|key, value| self.send(("#{key}="), value)}
+    save
   end
   
   def self.all

@@ -1,6 +1,6 @@
 class PokemonCLI::API
-  def self.get_pokemon
-    @pokemon_hash = PokeApi.get(pokemon: 'charmander')
+  def self.get_pokemon(input)
+    @pokemon_hash = PokeApi.get(pokemon: "#{input}")
     @pokemon = {
       base_exp: @pokemon_hash.base_experience,
       "specs" => {
@@ -17,8 +17,9 @@ class PokemonCLI::API
         defense: @pokemon_hash.stats[4].base_stat,
         hp: @pokemon_hash.stats[5].base_stat,
       },
-      games: @pokemon_hash.game_indices.collect {|game| game.version.name}
+      games: @pokemon_hash.game_indices.collect {|game| game.version.name},
+      name: @pokemon_hash.name
     }
-    Pokemon::API.new(@pokemon)
+    PokemonCLI::Pokemon.new(@pokemon)
   end
 end
