@@ -8,7 +8,8 @@ class PokemonCLI::CLI
     input = gets.strip.downcase
     
     if input == "try"
-      
+      puts "Try again!"
+      start
     elsif input == "quit"
       quit
     else
