@@ -7,11 +7,10 @@ class PokemonCLI::CLI
     puts "===To find out more info please type the pokemon's name:     ==="
     input = gets.strip.downcase
     
-    if input == "quit"
+    if input == "try"
+      
+    elsif input == "quit"
       quit
-    elsif input == JSON::ParserError
-      puts "Try again!"
-      start
     else
       @data = PokemonCLI::API.get_pokemon(input)
       display
